@@ -46,7 +46,7 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
   fs.readFile(path.join(__dirname, 'access.log'), (__, data) => {
     res.set('Content-Type', 'text/plain');
     console.log(data);
-    res.send(data);
+    res.send(data.toString());
   });
 });
 
