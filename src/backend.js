@@ -27,9 +27,9 @@ app.use(
         tokens.method(req, res),
         tokens.url(req, res),
         tokens.status(req, res),
-        Math.trunc(tokens['response-time'](req, res)) > 10
-          ? `0${Math.trunc(tokens['response-time'](req, res)) > 10}`
-          : Math.trunc(tokens['response-time'](req, res)) > 10
+        Math.trunc(tokens['response-time'](req, res)) < 10
+          ? `0${Math.trunc(tokens['response-time'](req, res))}`
+          : Math.trunc(tokens['response-time'](req, res))
       ].join(' ')}ms`;
     },
     {
