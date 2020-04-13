@@ -27,9 +27,8 @@ const covid19ImpactEstimator = (data) => {
     reportedCases,
     timeToElapse,
     periodType,
-    totalHospitalBeds: beds
-    // ,
-    // region: { avgDailyIncomeInUSD: avgInc, avgDailyIncomePopulation: avgIncPop }
+    totalHospitalBeds: beds,
+    region: { avgDailyIncomeInUSD: avgInc, avgDailyIncomePopulation: avgIncPop }
   } = data;
 
   const daysToDouble = 3;
@@ -87,24 +86,24 @@ const covid19ImpactEstimator = (data) => {
   );
 
   // Challenge 3
-  // output.impact.casesForICUByRequestedTime = Math.trunc(
-  //   output.impact.infectionsByRequestedTime * 0.05
-  // );
-  // output.severeImpact.casesForICUByRequestedTime = Math.trunc(
-  //   output.severeImpact.infectionsByRequestedTime * 0.05
-  // );
-  // output.impact.casesForVentilatorsByRequestedTime = Math.trunc(
-  //   output.impact.infectionsByRequestedTime * 0.02
-  // );
-  // output.severeImpact.casesForVentilatorsByRequestedTime = Math.trunc(
-  //   output.severeImpact.infectionsByRequestedTime * 0.02
-  // );
-  // output.impact.dollarsInFlight = Math.trunc(
-  //   output.impact.infectionsByRequestedTime * avgInc * avgIncPop * days
-  // );
-  // output.severeImpact.dollarsInFlight = Math.trunc(
-  //   output.severeImpact.infectionsByRequestedTime * avgInc * avgIncPop * days
-  // );
+  output.impact.casesForICUByRequestedTime = Math.trunc(
+    output.impact.infectionsByRequestedTime * 0.05
+  );
+  output.severeImpact.casesForICUByRequestedTime = Math.trunc(
+    output.severeImpact.infectionsByRequestedTime * 0.05
+  );
+  output.impact.casesForVentilatorsByRequestedTime = Math.trunc(
+    output.impact.infectionsByRequestedTime * 0.02
+  );
+  output.severeImpact.casesForVentilatorsByRequestedTime = Math.trunc(
+    output.severeImpact.infectionsByRequestedTime * 0.02
+  );
+  output.impact.dollarsInFlight = Math.trunc(
+    output.impact.infectionsByRequestedTime * avgInc * avgIncPop * days
+  );
+  output.severeImpact.dollarsInFlight = Math.trunc(
+    output.severeImpact.infectionsByRequestedTime * avgInc * avgIncPop * days
+  );
 
   return output;
 };
