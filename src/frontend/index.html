@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>COVID 19 SDG</title>
+    <meta name="Description" content="Covid 19 Estimator" />
+    <title>COVID 19 ESTIMATOR</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
@@ -23,7 +24,7 @@
   </head>
   <body>
     <nav>
-      <h1>COVID 19 SDG</h1>
+      <h1>COVID 19 ESTIMATOR</h1>
     </nav>
 
     <main>
@@ -33,31 +34,27 @@
           <input type="number" id="population" data-population />
         </div>
         <div class="form-control">
-          <label for="population">Population</label>
-          <input type="number" id="population" data-population />
+          <label for="time">Time To Elapse</label>
+          <input type="number" id="time" data-time-to-elapse />
         </div>
         <div class="form-control">
-          <label for="population">Time To Elapse</label>
-          <input type="number" id="population" data-time-to-elapse />
+          <label for="cases">Reported Cases</label>
+          <input type="number" id="cases" data-reported-cases />
         </div>
         <div class="form-control">
-          <label for="population">Reported Cases</label>
-          <input type="number" id="population" data-reported-cases />
+          <label for="beds">Total Hospital Beds</label>
+          <input type="number" id="beds" data-total-hospital-beds />
         </div>
         <div class="form-control">
-          <label for="population">Total Hospital Beds</label>
-          <input type="number" id="population" data-total-hospital-beds />
-        </div>
-        <div class="form-control">
-          <label for="population">Period Type</label>
-          <select data-period-type>
+          <label for="period">Period Type</label>
+          <select id="period" data-period-type>
             <option value="days">days</option>
             <option value="weeks">weeks</option>
             <option value="months">months</option>
           </select>
         </div>
 
-        <button>Submit</button>
+        <button data-go-estimate="">Submit</button>
       </form>
     </main>
   </body>
