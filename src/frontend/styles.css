@@ -18,10 +18,33 @@ form {
   padding: 2rem;
   box-shadow: 0 5px 5px #222;
   background: #2c1a1d;
-  border-radius: 10px;
+  border-radius: 2px;
   min-width: 300px;
+  color: white;
+}
+
+.form-control label {
+  margin-bottom: 0.5rem;
+  /* color: red; */
+}
+
+.form-control input {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #c89fa3;
 }
 
 form input {
   width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
