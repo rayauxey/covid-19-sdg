@@ -1,9 +1,10 @@
 nav {
-  background: #222;
+  background: #2c1a1d;
   box-shadow: 0 4px 4px rgba(34, 34, 34, 0.274);
   display: flex;
   justify-content: center;
   color: white;
+  height: 60px;
 }
 
 main {
@@ -11,4 +12,16 @@ main {
   min-height: calc(100vh - 60px);
   justify-content: center;
   align-items: center;
+}
+
+form {
+  padding: 2rem;
+  box-shadow: 0 5px 5px #222;
+  background: #2c1a1d;
+  border-radius: 10px;
+  min-width: 300px;
+}
+
+form input {
+  width: 100%;
 }
