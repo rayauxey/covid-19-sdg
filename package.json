@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "node ./src/backend",
+    "start": "node ./src/backend ",
     "lint": "eslint ./src/",
     "dev": "nodemon ./src/backend"
   },
