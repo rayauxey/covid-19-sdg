@@ -39,6 +39,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use('/', express.static(path.join(__dirname, 'frontend')));
+
 app.get('/api/v1/on-covid-19/log', (_, res) => {
   fs.readFile(path.join(__dirname, 'access.log'), (__, data) => {
     res.set('Content-Type', 'text/html');
