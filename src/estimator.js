@@ -19,31 +19,66 @@ function timeNormalizer(periodType, time) {
 }
 
 function estimate(infected, days, doublerate) {
-  return infected * 2 ** Math.floor(days / doublerate);
+  return infected * 2 ** Math.trunc(days / doublerate);
 }
 
 const covid19ImpactEstimator = (data) => {
-  const { reportedCases, timeToElapse, periodType } = data;
+  const {
+    reportedCases,
+    timeToElapse,
+    periodType,
+    totalHospitalBeds: beds
+  } = data;
 
   const daysToDouble = 3;
 
   const days = timeNormalizer(periodType, timeToElapse);
 
-  const currentlyInfected = reportedCases * 10;
-
-  const severeInfected = reportedCases * 50;
-
-  return {
+  const output = {
     data,
     impact: {
-      currentlyInfected,
-      infectionsByRequestedTime: estimate(currentlyInfected, days, daysToDouble)
+      currentlyInfected: 0,
+      infectionsByRequestedTime: 0,
+      severeCasesByRequestedTime: 0,
+      hospitalBedsByRequestedTime: 0
     },
     severeImpact: {
-      currentlyInfected: severeInfected,
-      infectionsByRequestedTime: estimate(severeInfected, days, daysToDouble)
+      currentlyInfected: 0,
+      infectionsByRequestedTime: 0,
+      severeCasesByRequestedTime: 0,
+      hospitalBedsByRequestedTime: 0
     }
   };
+
+  // Challenge 1
+  output.impact.currentlyInfected = reportedCases * 10;
+  output.severeImpact.currentlyInfected = reportedCases * 50;
+  output.impact.infectionsByRequestedTime = estimate(
+    output.impact.currentlyInfected,
+    days,
+    daysToDouble
+  );
+  output.severeImpact.infectionsByRequestedTime = estimate(
+    output.severeImpact.currentlyInfected,
+    days,
+    daysToDouble
+  );
+
+  // Challenge 2
+  output.impact.severeCasesByRequestedTime = Math.trunc(
+    output.impact.infectionsByRequestedTime * 0.15
+  );
+  output.severeImpact.severeCasesByRequestedTime = Math.trunc(
+    output.severeImpact.infectionsByRequestedTime * 0.15
+  );
+  output.impact.hospitalBedsByRequestedTime = Math.trunc(
+    beds * 0.35 - output.impact.severeCasesByRequestedTime
+  );
+  output.severeImpact.hospitalBedsByRequestedTime = Math.trunc(
+    beds * 0.35 - output.severeImpact.severeCasesByRequestedTime
+  );
+
+  return output;
 };
 
 // console.log(
@@ -51,14 +86,14 @@ const covid19ImpactEstimator = (data) => {
 //     region: {
 //       name: 'Africa',
 //       avgAge: 19.7,
-//       avgDailyIncomeInUSD: 5,
-//       avgDailyIncomePopulation: 0.71
+//       avgDailyIncomeInUSD: 4,
+//       avgDailyIncomePopulation: 0.73
 //     },
 //     periodType: 'days',
 //     timeToElapse: 38,
 //     reportedCases: 2747,
-//     population: 66622705,
-//     totalHospitalBeds: 1380614
+//     population: 92931687,
+//     totalHospitalBeds: 678874
 //   })
 // );
 
