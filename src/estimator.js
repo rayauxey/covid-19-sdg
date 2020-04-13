@@ -27,7 +27,7 @@ const covid19ImpactEstimator = (data) => {
     reportedCases,
     timeToElapse,
     periodType,
-    totalHospitalBeds: beds,
+    totalHospitalBeds: bed,
     region: { avgDailyIncomeInUSD: avgInc, avgDailyIncomePopulation: avgIncPop }
   } = data;
 
@@ -79,10 +79,10 @@ const covid19ImpactEstimator = (data) => {
     output.severeImpact.infectionsByRequestedTime * 0.15
   );
   output.impact.hospitalBedsByRequestedTime = Math.trunc(
-    beds * 0.35 - output.impact.severeCasesByRequestedTime
+    bed * 0.35 - output.impact.severeCasesByRequestedTime
   );
   output.severeImpact.hospitalBedsByRequestedTime = Math.trunc(
-    beds * 0.35 - output.severeImpact.severeCasesByRequestedTime
+    bed * 0.35 - output.severeImpact.severeCasesByRequestedTime
   );
 
   // Challenge 3
