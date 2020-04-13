@@ -41,7 +41,8 @@ app.use(cors());
 
 app.use('/', express.static(path.join(__dirname, 'frontend')));
 
-app.get('/api/v1/on-covid-19/logs', (_, res) => {
+app.get('/api/v1/on-covid-19/logs', (req, res) => {
+  console.log(req.body);
   fs.readFile(path.join(__dirname, 'access.log'), (__, data) => {
     res.set('Content-Type', 'text/plain');
     console.log(data);
@@ -51,7 +52,7 @@ app.get('/api/v1/on-covid-19/logs', (_, res) => {
 
 app.post('/api/v1/on-covid-19/:format?', (req, res) => {
   const { format } = req.params;
-
+  console.log(req.body);
   if (format === 'logs') {
     fs.readFile(path.join(__dirname, 'access.log'), (err, data) => {
       res.set('Content-Type', 'text/plain');
@@ -65,6 +66,7 @@ app.post('/api/v1/on-covid-19/:format?', (req, res) => {
 
   if (format === 'xml') {
     res.set('Content-Type', 'text/xml');
+    console.log(jsonToXml(output));
     res.send(jsonToXml(output));
   } else {
     res.json(output);

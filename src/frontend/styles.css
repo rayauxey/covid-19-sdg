@@ -24,8 +24,15 @@ form {
   box-shadow: 0 5px 5px #222;
   background: #2c1a1d;
   border-radius: 2px;
-  min-width: 300px;
+  /* min-width: 300px; */
+  width: 30%;
   color: white;
+}
+
+@media (max-width: 700px) {
+  form {
+    width: 90%;
+  }
 }
 
 .form-control {
@@ -37,7 +44,8 @@ form {
   /* color: red; */
 }
 
-.form-control input {
+.form-control input,
+select {
   margin-top: 0.5rem;
   padding: 0.5rem;
   background: #c89fa3;
@@ -45,8 +53,14 @@ form {
 }
 
 form input,
-form button {
+form button,
+form select {
   width: 100%;
+}
+
+select {
+  background: white;
+  cursor: pointer;
 }
 
 button {
@@ -57,6 +71,7 @@ button {
   border: none;
   border-radius: 10px;
   outline: none;
+  cursor: pointer;
 }
 
 button:hover {
