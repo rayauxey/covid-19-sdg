@@ -65,7 +65,7 @@ app.post('/api/v1/on-covid-19/:format?', (req, res) => {
   const output = estimator(req.body);
 
   if (format === 'xml') {
-    res.set('Content-Type', 'text/xml');
+    res.set('Content-Type', 'application/xml');
     console.log(jsonToXml(output));
     res.send(jsonToXml(output));
   } else {

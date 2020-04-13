@@ -7,10 +7,7 @@
     <meta name="Description" content="Covid 19 Estimator" />
     <title>COVID 19 ESTIMATOR</title>
     <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-      rel="stylesheet"
-    />
+
     <style>
       * {
         box-sizing: border-box;
@@ -19,6 +16,96 @@
       body {
         margin: 0;
         background: #a67f8e;
+      }
+      nav {
+        background: #2c1a1d;
+        box-shadow: 0 4px 4px rgba(34, 34, 34, 0.274);
+        display: flex;
+        justify-content: center;
+        color: white;
+        height: 60px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      main {
+        margin-top: 60px;
+        display: flex;
+        min-height: calc(100vh - 60px);
+        justify-content: center;
+        align-items: center;
+      }
+
+      form {
+        padding: 2rem;
+        box-shadow: 0 5px 5px #222;
+        background: #2c1a1d;
+        border-radius: 2px;
+        /* min-width: 300px; */
+        width: 30%;
+        color: white;
+      }
+
+      @media (max-width: 700px) {
+        form {
+          width: 90%;
+        }
+      }
+
+      .form-control {
+        margin: 1rem 0;
+      }
+
+      .form-control label {
+        margin-bottom: 0.5rem;
+        /* color: red; */
+      }
+
+      .form-control input,
+      select {
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        background: #c89fa3;
+        border: none;
+      }
+
+      form input,
+      form button,
+      form select {
+        width: 100%;
+      }
+
+      select {
+        background: white;
+        cursor: pointer;
+      }
+
+      button {
+        padding: 0.7rem 0;
+        margin-top: 1rem;
+        background-color: #a67f8e;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #c89fa3;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type='number'] {
+        -moz-appearance: textfield;
       }
     </style>
   </head>
