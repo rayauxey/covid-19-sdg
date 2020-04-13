@@ -5,9 +5,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "start": "node ./src/backend",
     "lint": "eslint ./src/",
-    "dev": "nodemon ./src/backend",
-    "start": "node ./src/backend"
+    "dev": "nodemon ./src/backend"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
