@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const jsonToXml = require('jsontoxml');
+const compression = require('compression');
 
 const fs = require('fs');
 const path = require('path');
@@ -41,6 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(compression());
 app.use('/', express.static(path.join(__dirname, 'frontend')));
 
 app.get('/api/v1/on-covid-19/logs', (req, res) => {
