@@ -33,7 +33,7 @@ const covid19ImpactEstimator = (data) => {
 
   const daysToDouble = 3;
 
-  const days = timeNormalizer(periodType, timeToElapse);
+  const day = timeNormalizer(periodType, timeToElapse);
 
   const output = {
     data,
@@ -62,12 +62,12 @@ const covid19ImpactEstimator = (data) => {
   output.severeImpact.currentlyInfected = reportedCases * 50;
   output.impact.infectionsByRequestedTime = estimate(
     output.impact.currentlyInfected,
-    days,
+    day,
     daysToDouble
   );
   output.severeImpact.infectionsByRequestedTime = estimate(
     output.severeImpact.currentlyInfected,
-    days,
+    day,
     daysToDouble
   );
 
@@ -99,10 +99,10 @@ const covid19ImpactEstimator = (data) => {
     output.severeImpact.infectionsByRequestedTime * 0.02
   );
   output.impact.dollarsInFlight = Math.trunc(
-    (output.impact.infectionsByRequestedTime * avgInc * avgIncPop) / days
+    (output.impact.infectionsByRequestedTime * avgInc * avgIncPop) / day
   );
   output.severeImpact.dollarsInFlight = Math.trunc(
-    (output.severeImpact.infectionsByRequestedTime * avgInc * avgIncPop) / days
+    (output.severeImpact.infectionsByRequestedTime * avgInc * avgIncPop) / day
   );
 
   return output;
