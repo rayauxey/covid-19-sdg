@@ -43,7 +43,7 @@ app.use('/', express.static(path.join(__dirname, 'frontend')));
 
 app.get('/api/v1/on-covid-19/logs', (_, res) => {
   fs.readFile(path.join(__dirname, 'access.log'), (__, data) => {
-    res.set('Content-Type', 'text/html');
+    res.set('Content-Type', 'text/plain');
     console.log(data);
     res.send(data);
   });
@@ -54,7 +54,7 @@ app.post('/api/v1/on-covid-19/:format?', (req, res) => {
 
   if (format === 'logs') {
     fs.readFile(path.join(__dirname, 'access.log'), (err, data) => {
-      res.set('Content-Type', 'text/html');
+      res.set('Content-Type', 'text/plain');
       console.log(data);
       res.send(data);
     });

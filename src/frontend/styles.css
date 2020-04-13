@@ -5,9 +5,14 @@ nav {
   justify-content: center;
   color: white;
   height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 main {
+  margin-top: 60px;
   display: flex;
   min-height: calc(100vh - 60px);
   justify-content: center;
@@ -23,6 +28,10 @@ form {
   color: white;
 }
 
+.form-control {
+  margin: 1rem 0;
+}
+
 .form-control label {
   margin-bottom: 0.5rem;
   /* color: red; */
@@ -32,10 +41,26 @@ form {
   margin-top: 0.5rem;
   padding: 0.5rem;
   background: #c89fa3;
+  border: none;
 }
 
-form input {
+form input,
+form button {
   width: 100%;
+}
+
+button {
+  padding: 0.7rem 0;
+  margin-top: 1rem;
+  background-color: #a67f8e;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+button:hover {
+  background: #c89fa3;
 }
 
 input::-webkit-outer-spin-button,
